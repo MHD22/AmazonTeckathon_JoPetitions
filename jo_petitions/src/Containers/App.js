@@ -5,6 +5,7 @@ import Start from '../Components/HomePage/Start';
 import Slider from '../Components/HomePage/Slider';
 import News from '../Components/HomePage/News';
 import Footer from '../Components/HomePage/Footer';
+import {Container} from 'react-bootstrap';
 
 
 class App extends Component {
@@ -17,10 +18,13 @@ class App extends Component {
   render(){
   return (
     <div className="App">
+      
       <Navbar/>
       <Start/>
+      <Container>
       <Slider/>
       <News/>
+      </Container>
       <Footer/>
       
     </div>
