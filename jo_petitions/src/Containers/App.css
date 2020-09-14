@@ -25,9 +25,15 @@ ol.carousel-indicators{
 }
 .text-container{
   height: 260px;
+}
+p.petition-desc{
+  height: 150px;
   overflow: hidden;
 }
 .nav-head{
   font-size: 1.25rem !important;
   font-weight: 700 !important;
+}
+h1.disc{
+  font-size: 4rem;
 }
