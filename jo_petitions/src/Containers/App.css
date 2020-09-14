@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+ol.carousel-indicators li{
+  background-color:black;
+  padding:0;
+}
+ol.carousel-indicators{
+  background-color: white;
+  margin:0;
+  padding:0;
+}
+
+.carousel-control-next, .carousel-control-prev{
+  width: unset !important;
+  opacity: unset !important;
+}
