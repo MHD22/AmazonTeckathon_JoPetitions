@@ -16,3 +16,18 @@ ol.carousel-indicators{
   width: unset !important;
   opacity: unset !important;
 }
+.btnn{
+  font-size: 2rem !important;
+  border-radius: 1rem !important;
+}
+.jumb{
+  height: 40vh !important;
+}
+.text-container{
+  height: 260px;
+  overflow: hidden;
+}
+.nav-head{
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}

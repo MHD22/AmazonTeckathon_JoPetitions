@@ -1,8 +1,16 @@
 import React from 'react';
-
+import {Jumbotron,Button}from 'react-bootstrap';
 function Start(){
 return(
-    <div></div>
+<Jumbotron className="shadow-2 jumb">
+  <h1 className="f1 b mb4 ">{"The Jordanian platform for change"}</h1>
+  <p >
+    {"Alot of peapole taking action. Victories every day"}
+  </p>
+  <p>
+    <Button className="mt-4 btnn br-5 grow f1 b" variant="primary">{"Start a petition"}</Button>
+  </p>
+</Jumbotron>
 );
 
 };
