@@ -91,13 +91,13 @@ class App extends Component {
             (<MyPetitions data={pet}
                          readPetition={this.readPetition}/>)
             :route==="read"? (<ReadPetition data={pet} changeRoute={this.changeRoute}/>)
-            : null  
+            : null  }
         
-        }
-        </div>
-        <Footer />
-      </div>
+        
           </div>
+          <Footer />
+        </div>
+      </div>
     );
   }
 }
