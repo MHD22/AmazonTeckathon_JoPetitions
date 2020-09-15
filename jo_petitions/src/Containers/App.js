@@ -7,26 +7,25 @@ import News from "../Components/HomePage/News";
 import Footer from "../Components/HomePage/Footer";
 import Discover from "../Components/Browse page/Discover";
 import SignIn from "./SignIn";
-import Register from './Register';
+import Register from "./Register";
 import StartPetition from "../Components/StartPetition_Page/StartPetition";
 import { Container } from "react-bootstrap";
 
 class App extends Component {
   constructor() {
     super();
-    this.state={
-      route:'start',
+    this.state = {
+      route: "sign in",
 
-      user:{
-        name:"",
-        petitions:[],
-      }
-
-      
-  }}
-  changeRoute=(r)=>{
-    this.setState({route:r});
+      user: {
+        name: "",
+        petitions: [],
+      },
+    };
   }
+  changeRoute = (r) => {
+    this.setState({ route: r });
+  };
 
   render() {
     const { route } = this.state;
@@ -36,38 +35,37 @@ class App extends Component {
         <div className="content-warp">
           <Navbar />
           <div className="container-above">
-            
-          {route === "home" ? (
-            <>
-              <Start />
-              <Container>
-                <Slider />
-                <News route={route} />
-              </Container>{" "}
-            </>
-          ) : // end of home page
-          route === "browse" ? (
-            <>
-              <Container>
-                <Discover />
-                <News route={route} />
-              </Container>
-            </>
-          ) : route==='start'? (
-            <>
-              <Container>
-                <StartPetition changeRoute={this.changeRoute} />
-              </Container>
-            </>)
-            : route==='sign in'? (<SignIn />)
-            : route ==='register'? (<Register />)
-            : null  
-        
-        }
-        </div>
-        <Footer />
-      </div>
+            {route === "home" ? (
+              <>
+                <Start />
+                <Container>
+                  <Slider />
+                  <News route={route} />
+                </Container>{" "}
+              </>
+            ) : // end of home page
+            route === "browse" ? (
+              <>
+                <Container>
+                  <Discover />
+                  <News route={route} />
+                </Container>
+              </>
+            ) : route === "start" ? (
+              <StartPetition>
+                <Container>
+                  <StartPetition changeRoute={this.changeRoute} />
+                </Container>
+              </StartPetition>
+            ) : route === "sign in" ? (
+              <SignIn />
+            ) : route === "register" ? (
+              <Register />
+            ) : null}
           </div>
+          <Footer />
+        </div>
+      </div>
     );
   }
 }
