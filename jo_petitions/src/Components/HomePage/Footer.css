@@ -1,0 +1,21 @@
+.main-footer {
+  padding-top: 8em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.fotter-container {
+  border-color: gray;
+  border-width: 1px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-style: solid;
+  margin-left: 1px;
+  box-shadow: 5px 10px 18px gray;
+}
+.col-sm {
+  margin-right: 78%;
+}
+.logo-color {
+  color: green;
+}
