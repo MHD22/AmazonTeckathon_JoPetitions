@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col , Button} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 function Page1(){
 return(
         <>
@@ -92,7 +92,7 @@ return(
        </Row>
 
        {/* third row */}
-       <Row>
+       <Row className="mb5">
         <Col NumberAttr={6}>
         <div className="tc link pointer grow">
         <div className="icon-container">
@@ -131,9 +131,7 @@ return(
         </div>
         </Col>
        </Row>
-       <div className="tr">
-       <Button variant="warning button-warn grow" >Continue</Button>
-       </div>
+       
        </>
    
 );
@@ -141,3 +139,7 @@ return(
 };
 
 export default Page1;
+
+/* <div className="tr">
+       <Button variant="warning button-warn grow" >Continue</Button>
+       </div> */
