@@ -35,6 +35,10 @@ class StartPetition extends Component{
         if(r==='home' && this.state.photo===""){
             return;
         }
+        if(r==='home'){
+            this.props.changeRoute(r);
+            return;
+        }
 
         this.setState({route:r})
     }
@@ -49,9 +53,10 @@ class StartPetition extends Component{
             :route ==='page3'?
             <Page3 changeRoute={this.changeRoute}
                     setText={this.setText}/>
-            :
+            :route==='page4'?
             <Page4 changeRoute={this.changeRoute}
                     setPhoto={this.setPhoto}/>
+            :null
         }
             </>
         );

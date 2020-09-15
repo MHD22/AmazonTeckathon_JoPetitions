@@ -6,6 +6,8 @@ import Slider from "../Components/HomePage/Slider";
 import News from "../Components/HomePage/News";
 import Footer from "../Components/HomePage/Footer";
 import Discover from "../Components/Browse page/Discover";
+import SignIn from "./SignIn";
+import Register from './Register';
 import StartPetition from "../Components/StartPetition_Page/StartPetition";
 import { Container } from "react-bootstrap";
 
@@ -13,8 +15,18 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      route:'home'
+      route:'start',
+
+      user:{
+        name:"",
+        petitions:[],
+      }
+
+      
   }}
+  changeRoute=(r)=>{
+    this.setState({route:r});
+  }
 
   render() {
     const { route } = this.state;
@@ -23,6 +35,8 @@ class App extends Component {
       <div className="App">
         <div className="content-warp">
           <Navbar />
+          <div className="container-above">
+            
           {route === "home" ? (
             <>
               <Start />
@@ -39,16 +53,21 @@ class App extends Component {
                 <News route={route} />
               </Container>
             </>
-          ) : (
+          ) : route==='start'? (
             <>
               <Container>
-                <StartPetition />
+                <StartPetition changeRoute={this.changeRoute} />
               </Container>
-            </>
-          )}
+            </>)
+            : route==='sign in'? (<SignIn />)
+            : route ==='register'? (<Register />)
+            : null  
+        
+        }
         </div>
         <Footer />
       </div>
+          </div>
     );
   }
 }

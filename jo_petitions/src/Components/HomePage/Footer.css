@@ -1,7 +1,8 @@
 .main-footer {
-  padding-top: 8em;
+  margin-top: 8em;
   position: relative;
   bottom: 0;
+  height: 150px;
   width: 100%;
 }
 .fotter-container {
