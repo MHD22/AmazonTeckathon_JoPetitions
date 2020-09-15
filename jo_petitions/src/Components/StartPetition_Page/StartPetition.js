@@ -36,7 +36,10 @@ class StartPetition extends Component{
             return;
         }
         if(r==='home'){
-            this.props.changeRoute(r);
+            const {title,text,photo}=this.state;
+            const data={title,text,photo};
+            this.props.setPet(data);
+            this.props.changeRoute("my petitions");
             return;
         }
 

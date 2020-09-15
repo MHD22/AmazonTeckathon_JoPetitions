@@ -1,19 +1,19 @@
 import React from 'react';
 import { Navbar , Nav, Form,FormControl, Button } from 'react-bootstrap';
 
-function NavBar(){
+function NavBar({changeRoute}){
 return(
     <Navbar bg="light" variant="light shadow-5 ">
-    <Navbar.Brand href="#home" className="nav-head">JO Petitions</Navbar.Brand>
+    <Navbar.Brand onClick={()=>{changeRoute('home')}} className="nav-head pointer dim">JO Petitions</Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Start a petition</Nav.Link>
-      <Nav.Link href="#features">My petitions</Nav.Link>
-      <Nav.Link href="#pricing">Browse</Nav.Link>
+      <Nav.Link onClick={()=>{changeRoute('start')}}> Start a petition</Nav.Link>
+      <Nav.Link onClick={()=>{changeRoute('my petitions')}}>My petitions</Nav.Link>
+      <Nav.Link onClick={()=>{changeRoute('browse')}}>Browse</Nav.Link>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary dim mh2">Login</Button>
-      <Button variant="outline-primary dim">Rigester</Button>
+      <Button onClick={()=>{changeRoute('sign in')}} variant="outline-primary dim mh2">Login</Button>
+      <Button onClick={()=>{changeRoute('register')}} variant="outline-primary dim">Rigester</Button>
     </Form>
   </Navbar>
 );
