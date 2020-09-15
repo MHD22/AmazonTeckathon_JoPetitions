@@ -45,6 +45,15 @@ class App extends Component {
   setPet =(data)=>{
     this.setState({petition:{...this.state.petition,title:data.title,text:data.text,photo:data.photo}})
   }
+  register=(n)=>{
+    const user={...this.state.user, name:n};
+    this.setState({user:user,route:'sign in' });
+//i think don't need to send name to here ,, just from sign in 
+  }
+  sign=(n)=>{
+    const user={...this.state.user, name:n};
+    this.setState({user:user,route:'home' });
+  }
 
   render() {
     const { route,oldRoute } = this.state;
@@ -85,8 +94,8 @@ class App extends Component {
                               setPet={this.setPet} />
               </Container>
             </>)
-            : route==='sign in'? (<SignIn />)
-            : route ==='register'? (<Register />)
+            : route==='sign in'? (<SignIn  sign={this.sign}/>)
+            : route ==='register'? (<Register register={this.register} />)
             : route ==='my petitions'?
             (<MyPetitions data={pet}
                          readPetition={this.readPetition}/>)
