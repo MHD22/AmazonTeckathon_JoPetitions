@@ -1,6 +1,37 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
-function Page1(){
+function Page1({changeRoute}){
+    const icons=[[<i class="fas fa-map-marker-alt f1"></i>,"Local"],
+    [<i class="fas f1 fa-heartbeat"></i>,"Health"],
+    [<i class="fas f1 fa-users"></i>,"Human rights"],
+    [<i class="fas f1 fa-money-check-alt"></i>,"Economic"],
+    [<i class="fas f1 fa-vote-yea"></i>,"Politics"],
+    [<i class="fas f1  fa-paw"></i>,"Animals"],
+    [<i class="fas f1 fa-female"></i>,"Women's rights"],
+    [<i class="fab f1 fa-envira"></i>,"Environment"],
+    [<i class="fas f1 fa-user-friends"></i>,"Family"],
+    [<i class="fas f1 fa-balance-scale-right"></i>,"Crinimal justice"],
+    [<i class="fas f1 fa-graduation-cap"></i>,"Education"],
+    [<i class="fas f1 fa-question"></i>,"Other"],
+    
+     ];
+     const typeTags= icons.map((item,index)=>{
+         return(
+            <Col key={index}>
+            <div className="tc link pointer grow"
+                onClick={()=>{changeRoute("page2")}}>
+            <div className="icon-container">
+                <br/><br/>
+            {item[0]}
+            </div>
+            <p>{item[1]}</p>
+            </div>
+            </Col>
+         );
+     });
+     const row1=typeTags.filter((tag,index)=> index<4)
+     const row2=typeTags.filter((tag,index)=> index>3 && index<8)
+     const row3=typeTags.filter((tag,index)=> index>7)
 return(
         <>
 
@@ -9,127 +40,19 @@ return(
            <p>selecting a topic allows JO Petitions to recommend your petition to interested supporters.</p>
        </div>
        <Row>
-        <Col NumberAttr={6}>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-        <i class="fas fa-map-marker-alt f1"></i>
-        </div>
-        <p>Local</p>
-        </div>
-        </Col>
-
-        <Col>
-        <div className="tc   link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-heartbeat"></i>
-        </div>
-        <p>Health</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc  link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-users"></i>
-        </div>
-        <p>Human rights</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-money-check-alt"></i>
-        </div>
-        <p>Economic</p>
-        </div>
-        </Col>
+        {row1}
        </Row>
 
 
        {/* second row  */}
 
        <Row>
-        <Col NumberAttr={6}>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-vote-yea"></i>
-        </div>
-        <p>Politics</p>
-        </div>
-        </Col>
-
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1  fa-paw"></i>
-        </div>
-        <p>Animals</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-female"></i>
-        </div>
-        <p>Women's rights</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fab f1 fa-envira"></i>
-        </div>
-        <p>Environment</p>
-        </div>
-        </Col>
+           {row2}
        </Row>
 
        {/* third row */}
        <Row className="mb5">
-        <Col NumberAttr={6}>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-user-friends"></i>
-        </div>
-        <p>Family</p>
-        </div>
-        </Col>
-
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-balance-scale-right"></i>
-        </div>
-        <p>Crinimal justice</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-graduation-cap"></i>
-        </div>
-        <p>Education</p>
-        </div>
-        </Col>
-        <Col>
-        <div className="tc link pointer grow">
-        <div className="icon-container">
-            <br/><br/>
-            <i class="fas f1 fa-question"></i>
-        </div>
-        <p>Other</p>
-        </div>
-        </Col>
+        {row3}
        </Row>
        
        </>
