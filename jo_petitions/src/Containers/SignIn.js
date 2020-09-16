@@ -4,7 +4,7 @@ class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      email:"mohammad",
+      email:"",
       password:"123",
     };
   }
@@ -39,7 +39,7 @@ class SignIn extends Component {
               onClick={this.onSubmit}
               type="button"
               name="Sign in"
-              class="next action-button"
+              class="next action-button grow"
               value="Sign in"
             />
           </fieldset>

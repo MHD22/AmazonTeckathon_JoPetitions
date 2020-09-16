@@ -60,7 +60,7 @@ class Register extends Component {
               onClick={this.onSubmit}
               type="button"
               name="submit"
-              class="next action-button"
+              className="next action-button  grow"
               value="submit"
             />
           </fieldset>

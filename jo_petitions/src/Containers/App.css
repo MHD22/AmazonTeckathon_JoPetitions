@@ -68,3 +68,11 @@ h1.disc{
     margin-bottom: -250px;
   
 }
+.dimm { opacity: 1; transition: opacity .15s ease-in; }
+.dimm:hover, .dim:focus { color: darkgreen !important; opacity: .5; transition: opacity .15s ease-in; }
+.dimm:active { opacity: .8; transition: opacity .15s ease-out; }
+.span-victory{
+  color:green;
+  font-style: italic;
+  padding-left: 10px;
+}

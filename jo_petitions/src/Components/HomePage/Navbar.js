@@ -1,28 +1,29 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import "./Footer.css";
 function NavBar({ changeRoute }) {
   return (
     <Navbar bg="light" variant="light shadow-5 ">
-      <Navbar.Brand
+      <Navbar.Brand 
         onClick={() => {
           changeRoute("home");
         }}
-        className="nav-head pointer dim"
-        className="logo-color"
+        className="ml4 logo-color nav-head pointer dim grow"
+        
       >
         JoPetitions
       </Navbar.Brand>
-      <Nav className="mr-auto">
-        <Nav.Link
+      <Nav className="mr-auto ml5">
+        <Nav.Link className="dimm b mh4 f4 grow"
           onClick={() => {
             changeRoute("start");
           }}
         >
-          {" "}
+          
           Start a petition
         </Nav.Link>
         <Nav.Link
+        className="dimm b mh4 f4 grow"
           onClick={() => {
             changeRoute("my petitions");
           }}
@@ -30,6 +31,7 @@ function NavBar({ changeRoute }) {
           My petitions
         </Nav.Link>
         <Nav.Link
+        className="dimm b mh4 f4 grow"
           onClick={() => {
             changeRoute("browse");
           }}
@@ -38,7 +40,7 @@ function NavBar({ changeRoute }) {
         </Nav.Link>
       </Nav>
       <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
         <Button
           onClick={() => {
             changeRoute("sign in");
