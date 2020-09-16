@@ -68,7 +68,7 @@ class App extends Component {
             
           {route === "home" ? (
             <>
-              <Start />
+              <Start changeRoute={this.changeRoute} />
               <Container>
                 <Slider />
                 <News route={route} 
