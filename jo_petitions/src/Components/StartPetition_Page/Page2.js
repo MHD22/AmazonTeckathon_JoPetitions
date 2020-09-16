@@ -1,5 +1,6 @@
 import React from 'react';
 import {Form , Button} from 'react-bootstrap';
+import "../../Containers/App.css"
 function Page2({changeRoute,setTitle}){
 return(
     <>
@@ -13,7 +14,7 @@ return(
         </Form.Group>
     </Form>
     <div className="tr">
-        <Button onClick={()=>{changeRoute("page3")}} variant="warning button-warn grow" >Continue</Button>
+        <Button onClick={()=>{changeRoute("page3")}} className="mt-5 btnn br-5 grow f1 b start-font3" variant="success button-warn grow ">Continue</Button>
     </div>
 
 </>

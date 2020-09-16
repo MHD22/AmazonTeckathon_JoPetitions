@@ -13,7 +13,7 @@ return(
         </Form.Group>
     </Form>
     <div className="tr">
-        <Button onClick={()=>{changeRoute("home")}} variant="success button-warn grow" >Save And Post</Button>
+        <Button onClick={()=>{changeRoute("home")}} className="mt-5 btnn br-5 grow f1 b start-font3" variant="success button-warn grow" >Save And Post</Button>
     </div>
 
 </>

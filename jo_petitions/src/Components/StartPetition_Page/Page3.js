@@ -14,7 +14,7 @@ return(
         </Form.Group>
     </Form>
     <div className="tr">
-        <Button onClick={()=>{changeRoute("page4")}} variant="warning button-warn grow" >Continue</Button>
+        <Button onClick={()=>{changeRoute("page4")}} variant="success button-warn grow" className="mt-5 btnn br-5 grow f1 b start-font3" >Continue</Button>
     </div>
 
 </>

@@ -76,3 +76,25 @@ h1.disc{
   font-style: italic;
   padding-left: 10px;
 }
+div.jumbotron{
+height: 50vh !important;
+}
+.start-font{
+font-family: Arial, Helvetica, sans-serif !important;
+}
+.start-font2{
+  font-family: Helvetica,Arial,Tahoma,sans-serif !important
+  ;
+  }
+  .start-font3{
+   font-size: 25px !important;
+   padding: 10px !important;
+   padding-right: 8px !important;
+   padding-left: 8px !important;
+
+    font-family:   Change Calibre,"Helvetica Neue",Helvetica,Arial,Tahoma,sans-serif !important;
+    }
+
+.palette-color{
+  color: #85ba6a !important;
+}

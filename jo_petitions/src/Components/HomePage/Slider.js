@@ -11,7 +11,7 @@ function Slider(){
       };
 
 return(
- <Container className="mt5">
+ <Container className="slider-top">
     <Carousel activeIndex={index} onSelect={handleSelect} className="bg-black-10">
       <Carousel.Item >
           <Row>

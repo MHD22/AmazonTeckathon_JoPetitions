@@ -19,7 +19,7 @@ class MyPetitions extends Component{
                 <h1 className="disc">{"My petitions"}</h1>
                 <Nav className="mt4 " variant="pills" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link  eventKey="link-0">My petitions</Nav.Link>
+                    <Nav.Link  eventKey="link-0" >My petitions</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link eventKey="link-1">Supported</Nav.Link>
