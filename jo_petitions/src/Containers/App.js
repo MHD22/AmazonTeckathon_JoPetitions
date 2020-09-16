@@ -20,14 +20,21 @@ class App extends Component {
       route:'home',
 
       user:{
-        name:"Mohammad",
+        name: this.state.user.firstName+' '+ this.state.user.lastName,
+        id:'',
+        firstName:'',
+        lastName:'',
+        email:'',
+        password:'',
+
+        
       },
       petition:{
         title:"title1",
         text:"this is my petition about something to solve",
         photo:"https://images.unsplash.com/photo-1599687266394-00d0dba159bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         supports:0,
-        date: Date.now(),
+       
       },
       oldRoute:"",
 
