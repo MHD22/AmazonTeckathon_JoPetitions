@@ -4,8 +4,8 @@ class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      email:"",
-      password:"",
+      email:"mohammad",
+      password:"123",
     };
   }
 
@@ -18,7 +18,7 @@ class SignIn extends Component {
   onSubmit=()=>{
     //get data from data base and compare it with this state
     
-    if(true){
+    if(this.state.email==="mohammad" && this.state.password==='123'){
 
       const name ="temp name"//from data base
       this.props.sign(name);
