@@ -27,6 +27,7 @@ class App extends Component {
         email:' ',
         password:' ',
         name:'',
+        
 
         
       },
@@ -35,6 +36,7 @@ class App extends Component {
         text:"",
         photo:"",
         supports:0,
+        name:'',
        
       },
       petitions:[],
@@ -44,9 +46,9 @@ class App extends Component {
   }}
   readPetition=(petData)=>{
     const {title,text,photo,supports,name,route}= petData;
-    const pet={title,text,photo,supports};
-    const user={name:name};
-    this.setState({route:'read',petition:pet , user:user , oldRoute:route});
+    const pet={title,text,photo,supports,name};
+   
+    this.setState({route:'read',petition:pet  , oldRoute:route});
   }
   changeRoute=(r)=>{
     this.setState({route:r});
@@ -88,8 +90,8 @@ class App extends Component {
 
   render() {
     const { route,oldRoute } = this.state;
-    const {title,text,photo,supports}=this.state.petition;
-    const {name,id}=this.state.user;
+    const {title,text,photo,supports,name}=this.state.petition;
+    const {id}=this.state.user;
     const pets=this.state.petitions;//popular without user id or name 
      const pet={title,text,photo,supports,id,name,route,oldRoute};
     return (
