@@ -3,13 +3,12 @@ const cors = require('cors');
 var knex = require('knex');
 const db = knex({
     client: 'pg',
-    version:7.2,
     connection: {
-      host : '127.0.0.1',
-      user : 'mhd.sad22',
-      password : '',
-      database : 'jo-petitions'
-    }
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+    rejectUnauthorized: false
+  }
+  }
    });
   
 //--------------------------
@@ -103,6 +102,6 @@ app.post('/mys',(req,res)=>{
     
 });
 
-app.listen("5000");
+app.listen(process.env.PORT);
 
  
