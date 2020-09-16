@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import "./Footer.css";
 function NavBar({ changeRoute }) {
+  
   return (
     <Navbar bg="light" variant="light shadow-5 ">
       <Navbar.Brand 
@@ -34,7 +35,8 @@ function NavBar({ changeRoute }) {
         className="dimm b mh4 f4 grow"
           onClick={() => {
             changeRoute("browse");
-          }}
+          }
+        }
         >
           Browse
         </Nav.Link>

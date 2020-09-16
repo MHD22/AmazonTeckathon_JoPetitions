@@ -9,9 +9,44 @@ class MyPetitions extends Component{
         this.state={
 
         }
+
     }
+    componentDidMount(){
+        this.mypets();
+    }
+      supported=()=>{
+        fetch('http://localhost:5000/mys',{
+            method:'post',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+              userID:this.props.id
+      
+            })
+          })
+          .then(res=>res.json())
+          .then(data=>{
+              this.props.changePetitions(data)
+          }).catch(e=>{"error in my supported "})
+        }
+        mypets=()=>{
+            fetch('http://localhost:5000/myp',{
+                method:'post',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({
+                  userID:this.props.id
+          
+                })
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                  this.props.changePetitions(data)
+              }).catch(e=>{"error in my petitions "})
+            }
     render(){
-        console.log(this.props.data)
+        const {data,route,changeRoute,readPetition}=this.props;
+        const petList= data.map((item)=>{
+            return (<Petition data={item} key={item.id} route={route} readPetition={readPetition} changeRoute={changeRoute}/>)
+          })
         return(
             <Container>
                 <div className="mt5 tl pl5">
@@ -19,15 +54,15 @@ class MyPetitions extends Component{
                 <h1 className="disc">{"My petitions"}</h1>
                 <Nav className="mt4 " variant="pills" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link  eventKey="link-0" >My petitions</Nav.Link>
+                    <Nav.Link onClick={this.mypets} eventKey="link-0" >My petitions</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link-1">Supported</Nav.Link>
+                    <Nav.Link onClick={this.supported} eventKey="link-1">Supported</Nav.Link>
                 </Nav.Item>
                 </Nav>
                 </div>
                 <hr></hr>
-                <Petition data={this.props.data} readPetition={this.props.readPetition} />
+                {petList}
             </Container>
         );
 

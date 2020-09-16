@@ -5,7 +5,7 @@ class SignIn extends Component {
     super();
     this.state = {
       email:"",
-      password:"123",
+      password:"",
     };
   }
 
@@ -16,16 +16,29 @@ class SignIn extends Component {
     this.setState({password:event.target.value});
   }
   onSubmit=()=>{
+    const {email,password}=this.state;
     //get data from data base and compare it with this state
+    fetch('http://localhost:5000/signin',{
+          method:'post',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            email:email,
+            password:password
     
-    if(this.state.email==="mohammad" && this.state.password==='123'){
+          })}).then(response=>response.json())
+          .then(data=>{
+            console.log(data);
+            if(data){
+              this.props.sign(data[0]);
+            }
+            else{
+              console.log('incorrect information !')}
 
-      const name ="temp name"//from data base
-      this.props.sign(name);
+          }).catch(e=>{console.log("errororooro")})
 
     }
 
-  }
+  
   render() {
     return (
       <>

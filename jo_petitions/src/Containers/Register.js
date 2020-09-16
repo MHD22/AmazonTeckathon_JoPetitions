@@ -27,16 +27,29 @@ class Register extends Component {
     this.setState({rePass:event.target.value});
   }
   onSubmit=()=>{
+    const{firstName,lastName,email,password,rePass}=this.state;
     
-    
-    if(this.state.firstName !=="" &&
-       this.state.lastName  !=="" &&
-       this.state.password !==""  &&
-       this.state.rePass   !==""  &&
-       this.state.password === this.state.rePass){
+    if(firstName !=="" &&
+       lastName  !=="" &&
+       password !==""  &&
+       rePass   !==""  &&
+       password === rePass){
          //send to data base .. 
-      const name = this.state.firstName+" "+this.state.lastName;
-      this.props.register(name);
+        fetch('http://localhost:5000/register',{
+          method:'post',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            password:password
+    
+          })}).then(res=>res.json())
+          .then(data=>{
+            this.props.register(data);
+          })
+
+     
        }
 
   }

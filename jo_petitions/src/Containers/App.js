@@ -20,29 +20,31 @@ class App extends Component {
       route:'home',
 
       user:{
-        name: this.state.user.firstName+' '+ this.state.user.lastName,
-        id:'',
-        firstName:'',
-        lastName:'',
-        email:'',
-        password:'',
+        // name: this.state.user.firstName+' '+ this.state.user.lastName,
+        id:'10',
+        firstName:' ',
+        lastName:' ',
+        email:' ',
+        password:' ',
+        name:'',
 
         
       },
       petition:{
-        title:"title1",
-        text:"this is my petition about something to solve",
-        photo:"https://images.unsplash.com/photo-1599687266394-00d0dba159bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+        title:"",
+        text:"",
+        photo:"",
         supports:0,
        
       },
+      petitions:[],
       oldRoute:"",
 
       
   }}
   readPetition=(petData)=>{
-    const {title,text,photo,supports,date,name,route}= petData;
-    const pet={title,text,photo,supports,date};
+    const {title,text,photo,supports,name,route}= petData;
+    const pet={title,text,photo,supports};
     const user={name:name};
     this.setState({route:'read',petition:pet , user:user , oldRoute:route});
   }
@@ -50,23 +52,46 @@ class App extends Component {
     this.setState({route:r});
   }
   setPet =(data)=>{
-    this.setState({petition:{...this.state.petition,title:data.title,text:data.text,photo:data.photo}})
+    fetch('http://localhost:5000/postpet',{
+      method:'post',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        title:data.title,
+        text:data.text,
+        photo:data.photo,
+        user:this.state.user.id
+
+      })
+    })
+   
   }
   register=(n)=>{
-    const user={...this.state.user, name:n};
-    this.setState({user:user,route:'sign in' });
-//i think don't need to send name to here ,, just from sign in 
+    this.setState({route:'sign in' });
   }
   sign=(n)=>{
-    const user={...this.state.user, name:n};
-    this.setState({user:user,route:'home' });
+    const name = n.firstName + " "+n.lastName;
+    n.name=name;
+    
+    this.setState({user:n,route:'home' });
+  }
+  componentDidMount(){
+    fetch('http://localhost:5000/browsep')
+    .then(response=> response.json())
+    .then(data=>{
+      console.log(data);
+      this.setState({petitions:data});
+    })
+  }
+  changePetitions=(pets)=>{
+    this.setState({petitions:pets});
   }
 
   render() {
     const { route,oldRoute } = this.state;
-    const {title,text,photo,supports,date}=this.state.petition;
-    const {name}=this.state.user;
-    const pet={title,text,photo,supports,date,name,route,oldRoute};
+    const {title,text,photo,supports}=this.state.petition;
+    const {name,id}=this.state.user;
+    const pets=this.state.petitions;//popular without user id or name 
+     const pet={title,text,photo,supports,id,name,route,oldRoute};
     return (
       <div className="App">
         <div className="content-warp">
@@ -77,9 +102,9 @@ class App extends Component {
             <>
               <Start changeRoute={this.changeRoute} />
               <Container>
-                <Slider />
+                <Slider changeRoute={this.changeRoute}/>
                 <News route={route} 
-                      data={pet}
+                      data={pets}
                       readPetition={this.readPetition}
                       changeRoute={this.changeRoute}/>
               </Container>
@@ -88,9 +113,9 @@ class App extends Component {
           route === "browse" ? (
             <>
               <Container>
-                <Discover />
+                <Discover changePetitions={this.changePetitions} />
                 <News route={route} 
-                      data={pet}
+                      data={pets}
                       readPetition={this.readPetition}/>
               </Container>
             </>
@@ -104,7 +129,11 @@ class App extends Component {
             : route==='sign in'? (<SignIn  sign={this.sign}/>)
             : route ==='register'? (<Register register={this.register} />)
             : route ==='my petitions'?
-            (<MyPetitions data={pet}
+            (<MyPetitions data={pets}
+                          id={id}
+                          route={route}
+                          changeRoute={this.changeRoute}
+                          changePetitions={this.changePetitions}
                          readPetition={this.readPetition}/>)
             :route==="read"? (<ReadPetition data={pet} changeRoute={this.changeRoute}/>)
             : null  }
