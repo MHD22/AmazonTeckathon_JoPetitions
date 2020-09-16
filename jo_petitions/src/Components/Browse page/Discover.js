@@ -3,7 +3,7 @@ import {Nav} from 'react-bootstrap';
 
 function Discover({changePetitions}){
   const  popular=()=>{
-    fetch('http://localhost:5000/browsep')
+    fetch('https://still-lake-92030.herokuapp.com/browsep')
     .then(response=> response.json())
     .then(data=>{
       changePetitions(data);
@@ -11,7 +11,7 @@ function Discover({changePetitions}){
     }
 
     const  recent=()=>{
-        fetch('http://localhost:5000/browser')
+        fetch('https://still-lake-92030.herokuapp.com/browser')
         .then(response=> response.json())
         .then(data=>{
           changePetitions(data);

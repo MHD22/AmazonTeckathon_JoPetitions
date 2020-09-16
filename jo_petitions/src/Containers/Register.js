@@ -35,7 +35,7 @@ class Register extends Component {
        rePass   !==""  &&
        password === rePass){
          //send to data base .. 
-        fetch('http://localhost:5000/register',{
+        fetch('https://still-lake-92030.herokuapp.com/register',{
           method:'post',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({

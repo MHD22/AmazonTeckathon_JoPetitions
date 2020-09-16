@@ -15,7 +15,7 @@ class MyPetitions extends Component{
         this.mypets();
     }
       supported=()=>{
-        fetch('http://localhost:5000/mys',{
+        fetch('https://still-lake-92030.herokuapp.com/mys',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -29,7 +29,7 @@ class MyPetitions extends Component{
           }).catch(e=>{"error in my supported "})
         }
         mypets=()=>{
-            fetch('http://localhost:5000/myp',{
+            fetch('https://still-lake-92030.herokuapp.com/myp',{
                 method:'post',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({

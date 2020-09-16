@@ -17,7 +17,7 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      route:'home',
+      route:'sign in',
 
       user:{
         // name: this.state.user.firstName+' '+ this.state.user.lastName,
@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({route:r});
   }
   setPet =(data)=>{
-    fetch('http://localhost:5000/postpet',{
+    fetch('https://still-lake-92030.herokuapp.com/postpet',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -77,7 +77,7 @@ class App extends Component {
     this.setState({user:n,route:'home' });
   }
   componentDidMount(){
-    fetch('http://localhost:5000/browsep')
+    fetch('https://still-lake-92030.herokuapp.com/browsep')
     .then(response=> response.json())
     .then(data=>{
       console.log(data);

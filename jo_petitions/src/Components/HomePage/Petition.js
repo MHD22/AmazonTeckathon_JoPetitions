@@ -24,7 +24,7 @@ class Petition extends Component{
                     <p class="petition-desc f6 f4-l mt4 lh-copy">
                     {text}
                     </p>
-                 <p class=" f4 tr b lh-copy mv0"> {firstName} <br/> </p>
+                 <p class=" f4 tr b lh-copy mv0"> {name} <br/> </p>
                     
                     </div>
                     
