@@ -18,5 +18,8 @@
   margin-right: 78%;
 }
 .logo-color {
-  color: green;
+  color: green !important;
+  font-family: "Brush Script MT";
+  font-size: 38px !important;
+  padding-left: 20px;
 }
