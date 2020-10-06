@@ -93,7 +93,7 @@ class App extends Component {
     const {title,text,photo,supports,name}=this.state.petition;
     const {id}=this.state.user;
     const pets=this.state.petitions;//popular without user id or name 
-     const pet={title,text,photo,supports,id,name,route,oldRoute};
+    const pet={title,text,photo,supports,id,name,route,oldRoute};
     return (
       <div className="App">
         <div className="content-warp">
